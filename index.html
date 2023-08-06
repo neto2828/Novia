@@ -1,22 +1,43 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>¿Quieres ser mi novia?</title>
-    <link rel="stylesheet" href="./css/site.css">
-</head>
-<body>
+    <link rel="stylesheet" href="./css/site.css" />
+  </head>
+  <body>
     <div id="container">
-        <h1>¿Quieres ser mi novia?</h1>
-        <div id="buttons">
-            <button id="accionParaCuandoEllaDigaQuesi"> Si </button>
-            <button id="btnNo" onmouseover="mueveElBoton()"> No </button>
-        </div>
-        <img src="./img/novia.png" alt="Novia">
-
+      <h1>¿Quieres ser mi novia?</h1>
+      <div id="buttons">
+        <button id="accionParaCuandoEllaDigaQuesi">Si</button>
+        <button id="btnNo" onmouseover="mueveElBoton()">No</button>
+      </div>
+      <img src="./img/novia.png" alt="Novia" />
     </div>
+    <script>
+        const button = document.getElementById("accionParaCuandoEllaDigaQuesi");
+button.addEventListener("click", () => {
+  const result = window.confirm("¡Ahora eres mi novia ❤️!");
+  if (result) {
+    window.location.href = "aceptada.html";
+  } else {
+    alert("Podrías volver a considerarlo 😔");
+  }
+});
 
-    <script src="/js/novia.js"></script>
-</body>
+function mueveElBoton() {
+  const width = window.innerWidth;
+  const height = window.innerHeight;
+
+  const newWidth = Math.random() * width;
+  const newHeight = Math.random() * height;
+
+  const btnNo = document.getElementById("btnNo");
+  btnNo.style.position = "absolute";
+  btnNo.style.left = newWidth + "px";
+  btnNo.style.top = newHeight + "px";
+}
+    </script>
+  </body>
 </html>
